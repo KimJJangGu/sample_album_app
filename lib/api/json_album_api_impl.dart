@@ -1,18 +1,32 @@
 import 'dart:convert';
 import 'package:album_app/api/album_api.dart';
-import '../model/album.dart';
-import '../model/photo.dart';
+import '../dto/album_dto.dart';
+import '../dto/photo_dto.dart';
 import 'package:http/http.dart' as http;
 
 class JsonAlbumApiImpl implements AlbumApi {
   @override
-  Future<Album> getAlbum() async {
+  Future<List<AlbumDto>> getAlbum() async {
     final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/albums'));
-    return Album.fromJson(jsonDecode(response.body));
+    final jsonList = jsonDecode(response.body) as List<dynamic>;
+    return jsonList.map((e) => AlbumDto.fromJson(e)).toList();
   }
 
-  Future<Photo> getPhoto() async {
+  Future<List<PhotoDto>> getPhoto() async {
     final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
-    return Photo.fromJson(jsonDecode(response.body));
+    final jsonList = jsonDecode(response.body) as List<dynamic>;
+    return jsonList.map((e) => PhotoDto.fromJson(e)).toList();
   }
+}
+
+void main() async {
+  final AlbumApi api = JsonAlbumApiImpl(); //
+  final List<AlbumDto> albumList = await api.getAlbum();
+
+  print(albumList);
+
+  final AlbumApi papi = JsonAlbumApiImpl();
+  final List<PhotoDto> photoList = await api.getPhoto();
+
+  print(photoList);
 }

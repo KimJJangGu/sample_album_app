@@ -1,7 +1,7 @@
-import 'package:album_app/model/photo.dart';
-import '../model/album.dart';
+import '../dto/album_dto.dart';
+import '../dto/photo_dto.dart';
 
 abstract interface class AlbumApi {
-  Future<Album> getAlbum();
-  Future<Photo> getPhoto();
+  Future<List<AlbumDto>> getAlbum();
+  Future<List<PhotoDto>> getPhoto();
 }
