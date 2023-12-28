@@ -1,5 +1,6 @@
+import 'package:album_app/ui/album_main/album_main_screen.dart';
+import 'package:album_app/ui/route.dart';
 import 'package:flutter/material.dart';
-import 'album_screen/album_app_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      routerConfig: router,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AlbumAppScreen(),
     );
   }
 }

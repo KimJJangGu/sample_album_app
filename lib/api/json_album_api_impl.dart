@@ -12,21 +12,22 @@ class JsonAlbumApiImpl implements AlbumApi {
     return jsonList.map((e) => AlbumDto.fromJson(e)).toList();
   }
 
-  Future<List<PhotoDto>> getPhoto() async {
-    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
+  Future<List<PhotoDto>> getPhoto(String albumId) async {
+    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos?albumId=$albumId'));
     final jsonList = jsonDecode(response.body) as List<dynamic>;
     return jsonList.map((e) => PhotoDto.fromJson(e)).toList();
   }
 }
 
-void main() async {
-  final AlbumApi api = JsonAlbumApiImpl(); //
-  final List<AlbumDto> albumList = await api.getAlbum();
-
-  print(albumList);
-
-  final AlbumApi papi = JsonAlbumApiImpl();
-  final List<PhotoDto> photoList = await api.getPhoto();
-
-  print(photoList);
-}
+// api 호출이 잘 되는지 테스트
+// void main() async {
+//   final AlbumApi api = JsonAlbumApiImpl();
+//   final List<AlbumDto> albumList = await api.getAlbum();
+//
+//   print(albumList);
+//
+//   final AlbumApi papi = JsonAlbumApiImpl();
+//   final List<PhotoDto> photoList = await api.getPhoto(3);
+//
+//   print(photoList);
+// }

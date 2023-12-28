@@ -3,5 +3,6 @@ import '../dto/photo_dto.dart';
 
 abstract interface class AlbumApi {
   Future<List<AlbumDto>> getAlbum();
-  Future<List<PhotoDto>> getPhoto();
+
+  Future<List<PhotoDto>> getPhoto(String albumId);
 }
