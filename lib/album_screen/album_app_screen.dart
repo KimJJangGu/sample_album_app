@@ -10,6 +10,8 @@ class AlbumAppScreen extends StatefulWidget {
 class _AlbumAppScreenState extends State<AlbumAppScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+
+    );
   }
 }
