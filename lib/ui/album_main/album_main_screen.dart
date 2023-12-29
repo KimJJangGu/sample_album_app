@@ -14,7 +14,7 @@ class _AlbumMainScreenState extends State<AlbumMainScreen> {
   final AlbumMainViewModel _viewModel = AlbumMainViewModel(); // viewModel 객체 생성
 
   @override
-  void initState() {
+  void initState() { // state 객체가 생성되면 state 객체의 생성자가 호출, 위젯이 최초 생성되는 상황이면 initState()가 호출 됨, 처음 한번만 호출되고 다시 호출되지 않음
     _viewModel.getAlbumList(); // viewModel의 getAlbumList() 호출
     super.initState();
   }
@@ -45,7 +45,7 @@ class _AlbumMainScreenState extends State<AlbumMainScreen> {
                 children: _viewModel.albumList.map((album) { // view model의 List<Album> 받기
                   return ListTile(
                     title: Text(album.title),
-                    onTap: () { // 목록을 tap하면 해당 경로로 이동
+                    onTap: () { // 목록을 tap하면 해당 경로로 이동(go router 이용)
                       context.push(Uri(path: '/main/detail', queryParameters: {'albumId': album.id.toString()}).toString());
                     },
                   );
