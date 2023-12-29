@@ -3,6 +3,7 @@ import '../../model/album.dart';
 import '../../repository/album_repository.dart';
 import '../../repository/album_repository_impl.dart';
 
+// UI와 로직을 나누기 위해 view model 클래스 생성
 class AlbumMainViewModel {
   final AlbumRepository _repository = AlbumRepositoryImpl();
 
