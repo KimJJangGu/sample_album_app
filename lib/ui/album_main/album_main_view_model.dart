@@ -11,7 +11,7 @@ class AlbumMainViewModel {
   Stream<bool> get isLoading => _isLoading.stream; // Stream 받음, 리스너
 
   List<Album> _albumList = [];
-  List<Album> get albumList => List.unmodifiable(_albumList); // 접근 못하게 막기, 리스트 수정 못하게 함
+  List<Album> get albumList => List.unmodifiable(_albumList); // 접근 못하게 막기, UI에서 리스트 수정 못하게 함
 
   Future<void> getAlbumList() async {
     _isLoading.add(true); // add() stream에 데이터 전달

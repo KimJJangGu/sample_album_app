@@ -34,7 +34,7 @@ class _AlbumMainScreenState extends State<AlbumMainScreen> {
         ),
         body: StreamBuilder<bool>(
           initialData: false, // 로딩 최초 상태를 false로 지정
-          stream: _viewModel.isLoading, // stream의 bool 값을 받는다
+          stream: _viewModel.isLoading, // _viewModel stream의 bool 값을 받는다
           builder: (context, snapshot) {
             if(snapshot.data == true) { // isLoading stream의 bool 값이 true이면 
               return const Center(child: CircularProgressIndicator()); // CircularProgressIndicator 표시
@@ -42,7 +42,7 @@ class _AlbumMainScreenState extends State<AlbumMainScreen> {
             return ListView(
               // 위젯 반환
                 padding: const EdgeInsets.all(8),
-                children: _viewModel.albumList.map((album) { // view model의 List<Album> 받기
+                children: _viewModel.albumList.map((album) { // _viewModel의 List<Album> 받기
                   return ListTile(
                     title: Text(album.title),
                     onTap: () { // 목록을 tap하면 해당 경로로 이동(go router 이용)
