@@ -34,7 +34,7 @@ class _AlbumMainScreenState extends State<AlbumMainScreen> {
         ),
         body: StreamBuilder<bool>(
           initialData: false, // 로딩 최초 상태를 false로 지정
-          stream: _viewModel.isLoading, // _viewModel stream의 bool 값을 받는다
+          stream: _viewModel.isLoading, // _viewModel stream의 bool 값을 받기
           builder: (context, snapshot) {
             if(snapshot.data == true) { // isLoading stream의 bool 값이 true이면 
               return const Center(child: CircularProgressIndicator()); // CircularProgressIndicator 표시

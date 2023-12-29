@@ -7,7 +7,7 @@ import '../../repository/album_repository_impl.dart';
 class AlbumMainViewModel {
   final AlbumRepository _repository = AlbumRepositoryImpl();
 
-  final StreamController<bool> _isLoading = StreamController(); // Controller 데이터를 던져줌, 스피커
+  final StreamController<bool> _isLoading = StreamController(); // Controller 데이터를 던져 줌, 스피커
   Stream<bool> get isLoading => _isLoading.stream; // Stream 받음, 리스너
 
   List<Album> _albumList = [];
